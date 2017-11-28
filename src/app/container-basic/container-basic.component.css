@@ -1,0 +1,16 @@
+.header-container {
+  display: block;
+  background-color: grey;
+}
+
+.menu {
+  flex: 1 1 auto;
+  overflow: auto;
+  background: gold;
+}
+
+.content {
+  flex: 1 1 auto;
+  overflow: auto;
+  background: gold;
+}
