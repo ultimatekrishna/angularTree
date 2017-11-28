@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpModule } from '@angular/http';
 
 
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { ResourceNotFoundComponent } from './resource-not-found/resource-not-found.component';
 import { TreeComponent } from './tree/tree.component';
 import { MenuComponent } from './menu/menu.component';
+import {TreeDataService} from './tree-data.service'
 
 
 const appRoutes: Routes = [
@@ -27,7 +29,7 @@ const appRoutes: Routes = [
     component: TreeComponent,
     data: { title: 'Heroes List' }
   },
-  { path: '**', component: ResourceNotFoundComponent }
+  { path: '**', component: ResourceNotFoundComponent}
 ];
 
 
@@ -43,12 +45,13 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule, NgbModule.forRoot(),
+    HttpModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [],
+  providers: [TreeDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
